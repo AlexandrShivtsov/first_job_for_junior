@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+{% include 'includes/navbar.html' %}
+
+
+My profile:
+{% if request.user.avatar %}
+    <img src="{{ request.user.avatar.url }}" class="rounded-circle h200">
+{% else %}
+    <img src="{% static 'images/anonymous.jpg' %}" class="rounded-circle h200">
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+
+<a href="{% url 'accounts:change-password' %}">Изменить пароль</a>
+
+
+{% endblock %}
+

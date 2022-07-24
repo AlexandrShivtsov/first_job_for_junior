@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+{% include 'includes/navbar.html' %}
+
+<div style="margin:70px 250px">
+    <center>
+        <h1>Интелесные статьи о языке Python</h1>
+                {% for article in object %}
+                 <h2><b>{{ article.title }}</b></h2>
+                 <h3 align="justify">{{ article.short_description }}
+                     <a href="{% url 'first_job:full_text' article.pk %}">Читать далее</a></h3>
+            {%endfor%}
+    </center>
+</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+CACHE_VACANSY_KEY = 'first_job::view::VacancyView'

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+{% include 'includes/navbar.html' %}
+
+LogIn:
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit" class="btn btn-secondary">LogIn</button>
+</form>
+{% endblock %}

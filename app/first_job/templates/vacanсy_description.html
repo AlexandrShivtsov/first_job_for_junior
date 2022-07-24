@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+{% include 'includes/navbar.html' %}
+<div style="margin:70px 250px">
+    <center>
+        <h1>Детальная информация о вакансии</h1></br></br>
+                 <h5><b>{{ object.title }}</b></h5>
+                    <b>Работодатель:</b> {{ object.employer }}</br>
+                    <b>Город:</b> {{ object.city }}</br>
+                    <b>Зарплата:</b> {{ object.salary }}</br>
+                    <b>Дата добавления вакансии:</b> {{ object.publication_date }}</br>
+                    <b>Описание вакансии:</b>  {{ object.description }}</a></br>
+                    <b>Источник:</b> {{ object.source }} <a href=  "{{object.job_link }}" target=">>_blank"> Ссылка на вокансию</a></br>
+    </center>
+</div>
+{% endblock %}

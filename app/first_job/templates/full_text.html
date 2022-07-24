@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+{% include 'includes/navbar.html' %}
+
+<div style="margin:70px 250px">
+    <center>
+        <h1>Интелесные статьи о языке Python</h1>
+                 <h2><b>{{ object.title }}</b></h2>
+                 <h3 align="justify">{{ object.text }}</h3>
+                 <h4>{{ object.author }}</h4>
+    </center>
+</div>
+{% endblock %}
