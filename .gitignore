@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 .idea/
-.key.py
-.Examples/
-.scraping/
+key.py
+Examples/
+scraping/

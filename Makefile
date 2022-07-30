@@ -27,5 +27,9 @@ migrate:
 rabbitmq:
 	sudo service rabbitmq-server start
 
+gunicorn:
+	 cd app && gunicorn settings.wsgi:application --workers 4 --bind 0.0.0.0:8000 --timeout 5 --max-requests 10000
+
+
 
     	
