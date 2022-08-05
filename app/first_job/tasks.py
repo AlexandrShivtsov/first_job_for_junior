@@ -27,7 +27,8 @@ def save_new_vacancy(title, city, salary, description, employer, link, source, p
 # prepare publication date for saving to db
 def get_publication_date(date):
     month_dict = {'января': 1, 'січеня': 1, 'лютого': 2, 'березенья': 3, 'квітеня': 4, 'травня': 5,
-                  'февраля': 2, 'марта': 3, 'апреля': 4, 'мая': 5, 'июня': 6, 'червня': 6, 'липня': 7, 'июля': 7}
+                  'февраля': 2, 'марта': 3, 'апреля': 4, 'мая': 5, 'июня': 6, 'червня': 6, 'липня': 7, 'июля': 7,
+                  'серпня': 8, 'августа': 8}
     day = date[0]
     month = month_dict[date[1]]
     year = date[2]

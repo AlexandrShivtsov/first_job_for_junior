@@ -19,3 +19,21 @@ def activate_mail(activate_link, email_to):
         [email_to],
         fail_silently=False,
     )
+
+
+@shared_task
+def send_reset_password_link(reset_link, email_to):
+    subject = 'Link for reset password',
+    full_email_massage = f'''
+           Hello!
+
+           Here is your link for reset password {reset_link}
+           '''
+
+    send_mail(
+        subject,
+        full_email_massage,
+        settings.EMAIL_HOST_USER,
+        [email_to],
+        fail_silently=False,
+    )

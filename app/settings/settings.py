@@ -148,15 +148,15 @@ CELERY_BROKER_URL = 'amqp://localhost'
 CELERY_BEAT_SCHEDULE = {
     'scraping_work_ua': {
         'task': 'first_job.tasks.pars_work_ua',
-        'schedule': crontab(minute='*/2'),
+        'schedule': crontab(minute='*/32'),
     },
     'scraping_rabota_ua': {
         'task': 'first_job.tasks.pars_rabota_ua',
-        'schedule': crontab(minute='*/3'),
+        'schedule': crontab(minute='*/35'),
     },
     'scraping_dou_job': {
         'task': 'first_job.tasks.pars_dou_job',
-        'schedule': crontab(minute='*/5'),
+        'schedule': crontab(minute='*/38'),
     },
 }
 

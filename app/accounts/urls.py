@@ -15,9 +15,10 @@ Including another URLconf
 """
 
 from django.urls import path, include, reverse_lazy
-from accounts.views import MyProfileView, SingUpView, ActivateUserView
+from accounts.views import MyProfileView, SingUpView, ActivateUserView, \
+    ResetPasswordView, CheckResetPasswordLinkView, WrongInputEmailResetPasswordView, \
+    ResetPasswordInputView, PasswordDoNotMatchView, InfoMessageResetPasswordView
 from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
-# from django.contrib.auth import views as auth_views
 
 app_name = 'accounts'
 
@@ -26,45 +27,36 @@ urlpatterns = [
     path('auth/', include('django.contrib.auth.urls')),
     path('my_profile/', MyProfileView.as_view(), name='my-profile'),
 
-    path('change_password/',
-         PasswordChangeView.as_view(
-             template_name='change_password.html',
-             success_url=reverse_lazy('accounts:password_change_done')),
-         name='change-password'),
+    path('change_password/', PasswordChangeView.as_view(
+        template_name='change_password.html',
+        success_url=reverse_lazy('accounts:password_change_done')),
+        name='change-password'),
 
-    path('change_password_done/',
-         PasswordChangeDoneView.as_view(
-             template_name='password_change_done.html'),
-         name='password_change_done'),
+    path('change_password_done/', PasswordChangeDoneView.as_view(
+        template_name='password_change_done.html'),
+        name='password_change_done'),
 
-    # TODO
-    #
-    # path('password_reset/',
-    #      auth_views.PasswordResetView.as_view(
-    #          template_name='password_reset_form.html'
-    #      ),
-    #      name='password_reset'),
-    #
-    # path('password_reset/done/',
-    #      auth_views.PasswordResetDoneView.as_view(
-    #         template_name='password_reset_done.html'
-    #      ),
-    #      name='password_reset_done'),
-    #
-    # path('password_reset_confirm/<uidb64>/<token>/',
-    #      auth_views.PasswordResetConfirmView.as_view(
-    #          template_name='password_reset_confirm.html'
-    #      ),
-    #      name='password_reset_confirm'),
-    #
-    # path('reset/done/',
-    #      auth_views.PasswordResetCompleteView.as_view(
-    #          template_name='password_reset_complete.html'
-    #      ),
-    #      name='password_reset_complete'),
-    #
-    # path('^', include('django.contrib.auth.urls')),
+    path('reset_password_custom/', ResetPasswordView.as_view(),
+         name='reset_password_custom'),
 
-    path('sing_up/', SingUpView.as_view(), name='singe_up'),
-    path('activate/<uuid:username>/', ActivateUserView.as_view(), name='activate_user'),
+    path('reset_password_sent_custom/<uuid:username>/', CheckResetPasswordLinkView.as_view(),
+         name='reset_password_sent_custom'),
+
+    path('wrong_input_email/', WrongInputEmailResetPasswordView.as_view(),
+         name='wrong_input_email'),
+
+    path('reset_password_input/<uuid:username>', ResetPasswordInputView.as_view(),
+         name='reset_password_input'),
+
+    path('sing_up/', SingUpView.as_view(),
+         name='singe_up'),
+
+    path('activate/<uuid:username>/', ActivateUserView.as_view(),
+         name='activate_user'),
+
+    path('password_do_not_match/', PasswordDoNotMatchView.as_view(),
+         name='password_do_not_match'),
+
+    path('info_message_about_send_link/', InfoMessageResetPasswordView.as_view(),
+         name='info_message_about_send_link'),
 ]

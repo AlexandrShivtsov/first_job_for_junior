@@ -55,3 +55,16 @@ class SingUpForm(forms.ModelForm):
         if commit:
             instance.save()
         return instance
+
+
+class ResetPasswordForm(forms.Form):
+    email = forms.EmailField()
+
+
+class ResetPasswordInputForm(forms.Form):
+    new_password = forms.CharField(widget=forms.PasswordInput, label='Введите новый пароль', min_length=8)
+    chek_password = forms.CharField(widget=forms.PasswordInput, label='Введите пароль повторно')
+
+
+
+
