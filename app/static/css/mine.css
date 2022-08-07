@@ -8,3 +8,40 @@
   width: 200px;
 }
 
+.text-block {
+    margin-left: 420px;
+    margin-right: 400px;
+    background-color: white;
+}
+
+.box {
+  border: 5px solid darkblue;
+  height: 550px;
+  width: 500px;
+  bottom: 300px;
+  right: 20px;
+  left: 20px;
+  background-color: white;
+  color: black;
+}
+
+.center-img {
+  display: block;
+  margin: 0 auto;
+  height: 390px;
+  width: 700px;
+  border-radius: 25px;
+}
+
+.background {
+  background-color: #f0f0f0;
+}
+
+.index-textbox {
+ background-color: white;
+}
+
+.mine-text-block {
+    margin-left: 400px;
+    margin-right: 380px;
+    background-color: white;

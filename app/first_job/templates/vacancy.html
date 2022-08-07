@@ -15,7 +15,6 @@
 
     <center>
         <h3>Актуальные вакансии для начинающих Python разработчиков</h3>
-        <p style="position: relative; right: -130px;">Всего найдено {{vacancy_list|length}} вакансий</p>
                 {% for vacancy in vacancy_list %}
                 <div class="card" style="width: 35rem;  border-radius: 8px;">
                  <a href="{% url 'first_job:vacancy_description' vacancy.pk %}"><h4><b>{{ vacancy.title }}</b></h4></a>

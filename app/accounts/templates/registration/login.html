@@ -9,5 +9,7 @@ LogIn:
     {% csrf_token %}
     {{ form.as_p}}
     <button type="submit" class="btn btn-secondary">LogIn</button>
+    <a class="btn btn-secondary" href="{% url 'accounts:reset_password_custom' %}">forgot password</a>
 </form>
+
 {% endblock %}
